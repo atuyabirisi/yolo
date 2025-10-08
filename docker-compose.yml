@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  backend:
+    depends_on:
+      - database
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://database:27017/yolomy
+
+  database:
+    image: mongo:4.0.28-xenial
+    ports:
+      - "27017:27017"
+    volumes:
+      - yolo:/data/db
+
+volumes:
+  yolo:
