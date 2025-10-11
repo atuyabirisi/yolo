@@ -11,12 +11,12 @@ COPY . .
 RUN npm run build
 
 
-FROM node:24-alpine3.21 AS production
+FROM nginx:alpine
 
-WORKDIR /yolo-client
+RUN rm -rf /usr/share/nginx/html/*
 
-COPY --from=builder /yolo-client/build .
+COPY --from=builder /yolo-client/build /usr/share/nginx/html
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
