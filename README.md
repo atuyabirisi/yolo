@@ -1,10 +1,11 @@
 #### Project Overview
-This project involved dockerizing a fullstack application ,defining a multi-container setup with docker compose for frontend, backend and databse services and creating a custom network for the services.
+This project involved dockerizing a fullstack application ,defining a multi-container setup with docker compose for frontend, backend and databse services, creating a custom network for the services and persisting application data using volumes.
 
 #### Key Features
- - Built frontend and backend images with docker
- - Defined a multi-container setup with docker compose
- - pushed images to docker hub
+ - Multi-stage builds for frontend and backend images with Docker
+ - A multi-container setup with docker compose
+ - A Custom docker compose network
+ - Pushing images to docker hub
  - Automated of the workflow with a Jenkins pipeline
 
 #### Requirements
@@ -14,5 +15,11 @@ This project involved dockerizing a fullstack application ,defining a multi-cont
 #### Launch the application locally
  - Fork repository - https://github.com/atuyabirisi/yolo.git
  - Clone repository
- - Run command At the root docker compose up
- - Open http://localhost:3000/ on a browser 
+    ```bash
+      git clone https://github.com/atuyabirisi/yolo.git
+    ```
+ - Build and start containers
+    ```bash
+      docker compose up
+    ```
+ - Open the application in a browser - http://localhost:3000/ 
