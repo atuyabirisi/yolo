@@ -5,7 +5,7 @@ This strategy ensures build time tools and dev dependencies are not included in 
 #### Tools:
   - Linux based Operating System
   - Node.js runtime environment.
-  - Nginx for serving the application static files
+  - Nginx 
     
 #### Stage 1:
 - **Node.js 24 Alpine** as the base image (alpine OS  and a Node runtime) - because
@@ -29,4 +29,5 @@ This strategy ensures build time tools and dev dependencies are not included in 
 - **CMD ["nginx", "-g", "daemon off;"]** - runs Nginx as the main process of the container
 
 [Docker Hub URL](https://hub.docker.com/repositories/birisi)
+
 
