@@ -1,15 +1,18 @@
-# Overview
-This project involved the containerization and deployment of a full-stack yolo application using Docker.
+#### Project Overview
+This project involved dockerizing a fullstack application ,defining a multi-container setup with docker compose for frontend, backend and databse services and creating a custom network for the services.
 
+#### Key Features
+ - Built frontend and backend images with docker
+ - Defined a multi-container setup with docker compose
+ - pushed images to docker hub
+ - Automated of the workflow with a Jenkins pipeline
 
-# Requirements
-Install the docker engine here:
-- [Docker](https://docs.docker.com/engine/install/) 
-
-## How to launch the application 
-
-
-![Alt text](image.png)
-
-## How to run the app
-Use vagrant up --provison command
+#### Requirements
+  - Docker &
+  - Jenkins installed
+    
+#### Launch the application locally
+ - Fork repository - https://github.com/atuyabirisi/yolo.git
+ - Clone repository
+ - Run command At the root docker compose up
+ - Open http://localhost:3000/ on a browser 
