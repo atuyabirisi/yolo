@@ -3,8 +3,8 @@ Used multi-stage build strategy to create a smaller image.
 This strategy ensures build time tools and dev dependencies are not included in the final image
 
 #### Tools:
-  - Linux based Operating System
-  - Node.js runtime environment.
+  - Linux based OS
+  - Node.js 
   - Nginx 
     
 #### Stage 1:
@@ -29,5 +29,6 @@ This strategy ensures build time tools and dev dependencies are not included in 
 - **CMD ["nginx", "-g", "daemon off;"]** - runs Nginx as the main process of the container
 
 [Docker Hub URL](https://hub.docker.com/repositories/birisi)
+
 
 
