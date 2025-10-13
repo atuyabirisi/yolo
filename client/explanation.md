@@ -1,27 +1,33 @@
-#### Project Overview
+#### Strategy used
 
-This project involved dockerizing a fullstack application ,defining a multi-container setup with docker compose for frontend, backend and databse services, creating a custom network for the services and persisting application data using volumes.
+Used multi-stage build strategy to create a smaller image.
+This strategy ensures build time tools and dev dependencies are not included in the final image
 
-#### Key Features
+#### Tools:
 
-- Multi-stage builds for frontend and backend images with Docker
-- A multi-container setup with docker compose
-- A Custom docker compose network
-- Pushing images to docker hub
+- Linux based OS
+- Node.js
+- Nginx
 
-#### Requirements
+#### Stage 1:
 
-- Docker &
+- **Node.js 24 Alpine** as the base image (alpine OS and a Node runtime) - because
+  it is lightweight, for faster builds and image size.
 
-#### Launch the application locally
+- **WORKDIR /yolo-client** - Set /yolo-client as the working directory
 
-- Fork repository - https://github.com/atuyabirisi/yolo.git
-- Clone repository
-  ```bash
-    git clone https://github.com/atuyabirisi/yolo.git
-  ```
-- Build and start containers
-  ```bash
-    docker compose up
-  ```
-- Open the application in a browser - http://localhost:3000/
+- COPY package\*.json . - copies only package.json and package-lock.json into the working dir
+  This is a Docker optimization technique - because dependencies are not going to change oftenly -
+  so Docker is going to reuse the layer from cache - faster building time.
+- **RUN npm ci** installs the exact version of dependencies defined in the package-lock.json - in contrast with npm
+  install that loos up for the latest compatible version of the package
+
+#### Stage 2:
+
+- **RUN rm -rf /usr/share/nginx/html/\*** deletes the default Nginx HTML directory to ensure no default content remains
+
+- **COPY --from=builder /yolo-client/build /usr/share/nginx/html** copies the optimized static build files from the builder stage into Nginx’s default web directory.
+
+- **CMD ["nginx", "-g", "daemon off;"]** - runs Nginx as the main process of the container
+
+[Docker Hub URL](https://hub.docker.com/repositories/birisi)
