@@ -2,7 +2,7 @@
 This project involved dockerizing this MERN stack Yolo e-commerce Application ,defining a multi-container setup with docker compose for frontend, backend and database services, creating a custom network for the services and persisting application data using volumes.
 
 #### Key Features
- - Multi-stage builds for frontend and backend images with Docker
+ - Multi-stage builds for frontend image with Docker
  - A multi-container setup with docker compose
  - A Custom docker compose network
  - Pushing images to docker hub
