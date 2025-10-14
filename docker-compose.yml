@@ -13,7 +13,7 @@ services:
       - database
     build:
       context: ./backend
-    image: yolo-backend:v1.0.0
+    image: birisi/yolo-backend:v1.0.0
     ports:
       - "5000:5000"
     environment:
@@ -26,7 +26,7 @@ services:
       - backend
     build:
       context: ./client
-    image: yolo-frontend:v1.0.0
+    image: birisi/yolo-frontend:v1.0.0
     ports:
       - "3000:80"
     environment:

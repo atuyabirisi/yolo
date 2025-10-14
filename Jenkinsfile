@@ -44,22 +44,14 @@ pipeline {
             }
         }
 
-        stage('Deploy with Docker Compose') {
-            steps {
-                echo 'Deploying containers using docker-compose...'
-                sh 'docker-compose down'
-                sh 'docker-compose pull'
-                sh 'docker-compose up -d'
-            }
-        }
     }
 
     post {
         success {
-            echo 'Build and deployment successful!'
+            echo 'Push to Docker Hub successful!'
         }
         failure {
-            echo 'Build or deployment failed!'
+            echo 'Push to Docker Hub failed!'
         }
     }
 }
