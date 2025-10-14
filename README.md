@@ -1,12 +1,12 @@
 #### Dockerizing the Yolo E-Commerce App
-This project involved dockerizing the Yolo e-commerce Application ,defining a multi-container setup with docker compose for frontend, backend and database services, creating a custom network for the services, persisting application data using volumes pushing built images(frontend, backend) to docker hub.
+This project involved dockerizing the Yolo e-commerce Application ,defining a multi-container setup with docker compose for frontend, backend and database services, creating a custom network for the services, persisting application data using volumes and versioning & pushing built images(frontend, backend) to docker hub.
 
 #### Key Features
  - Multi-stage build for frontend image with Docker
  - A multi-container setup with docker compose
  - A Custom docker compose network
  - A volume for data persistance
- - Pushing images to docker hub
+ - Pushing built images (front & backend) to docker hub
  - Automation of the above workflows using a Jenkins pipeline
 
 #### Requirements
