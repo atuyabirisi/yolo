@@ -1,0 +1,10 @@
+- name: start yolo frontend container
+  community.docker.docker_container:
+    name: yolo-frontend
+    image: birisi/yolo-frontend:v1.0.0
+    ports:
+      - "3000:80"
+    env:
+      REACT_APP_BACKEND_URL: http://backend:5000
+    networks:
+      - name: yolo-net
