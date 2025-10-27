@@ -34,3 +34,14 @@
     name: docker
     state: started
     enabled: yes
+
+- name: Create custom Docker network
+  community.docker.docker_network:
+    name: yolo-net
+    driver: bridge
+    state: present
+
+- name: Create Docker volume
+  community.docker.docker_volume:
+    name: yolo
+    state: present
