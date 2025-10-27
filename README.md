@@ -44,3 +44,20 @@ Install the following tools;
 
 - Vagrant
 - Ansible
+
+#### How to run the application on host browser
+
+- Fork the repository to your local machine
+- Clone the repository
+- At the project root run the following commands,
+  (assuming you have required tools installed)
+
+  ```bash
+    vagrant up
+  ```
+
+  ```bash
+    vagrant provision
+  ```
+
+- Open the application in a browser on host - http://localhost:3000/
