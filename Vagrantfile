@@ -74,6 +74,11 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  # Forward VM services ports
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
+  
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
   end
