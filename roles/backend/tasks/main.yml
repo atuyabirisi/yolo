@@ -1,11 +1,11 @@
 - name: Start yolo backend container
   community.docker.docker_container:
     name: yolo-backend
-    image: birisi/yolo-backend:v1.0.0
+    image: "{{ yolo_backend_image }}"
     ports:
-      - "5000:5000"
+      - "{{ forwarded_port }}:5000"
     env:
-      MONGO_URI: mongodb://database:27017/yolomy
+      MONGO_URI: "{{ database_uri }}"
     networks:
       - name: yolo-net
 

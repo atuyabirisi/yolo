@@ -1,2 +1,3 @@
----
-# vars file for yolo-frontend
+forwarded_port: 3000
+backend_url: "http://backend:5000"
+frontend_image: "birisi/yolo-frontend:v1.0.0"

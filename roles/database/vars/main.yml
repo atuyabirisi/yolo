@@ -1,2 +1,2 @@
----
-# vars file for database
+database_image: mongo:4.0.28-xenial
+database_port: 27017

@@ -1,9 +1,9 @@
 - name: Run MongoDB container
   community.docker.docker_container:
     name: yolo-db
-    image: mongo:4.0.28-xenial
+    image: "{{ database_image }}"
     ports:
-      - "27017:27017"
+      - "{{ database_port }}:27017"
     volumes:
       - yolo:/data/db
     networks:
