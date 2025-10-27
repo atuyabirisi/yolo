@@ -1,0 +1,7 @@
+all:
+  hosts:
+    yolo-server:
+      ansible_private_key_file: .vagrant/machines/default/virtualbox/private_key
+      ansible_user: vagrant
+      ansible_host: 127.0.0.1
+      ansible_port: 2222
