@@ -63,6 +63,8 @@ import EditProductForm from "./EditProductForm";
 //         id: '6'
 //     }
 // ]
+const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 class ProductControl extends Component {
   constructor(props) {
     super(props);
@@ -76,7 +78,7 @@ class ProductControl extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/api/products").then((res) => {
+    axios.get("http://192.168.49.2:30500/api/products").then((res) => {
       console.log(res);
       this.setState({
         actualProductList: res.data,
@@ -156,7 +158,7 @@ class ProductControl extends Component {
     // }
     // console.log(...formData)
     axios
-      .post("http://localhost:5000/api/products", newProduct)
+      .post("http://192.168.49.2:30500/api/products", newProduct)
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error);
@@ -168,7 +170,7 @@ class ProductControl extends Component {
   };
   handleDeletingProduct = (id) => {
     axios
-      .delete("http://localhost:5000/api/products/" + id)
+      .delete(`${backend_url}/api/products/` + id)
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error);
@@ -193,7 +195,8 @@ class ProductControl extends Component {
   handleEditingProduct = (editedProduct) => {
     axios
       .put(
-        "http://localhost:5000/api/products/" + this.state.selectedProduct._id,
+        "http://192.168.49.2:30500/api/products/" +
+          this.state.selectedProduct._id,
         editedProduct
       )
       .then((res) => console.log(res.data));
