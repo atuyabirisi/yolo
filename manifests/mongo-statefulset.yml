@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -6,7 +7,7 @@ metadata:
     ownership: atuya
     description: MongoDB StatefulSet for Yolo application
 spec:
-  serviceName: "mongodb"
+  serviceName: mongodb
   replicas: 4
   selector:
     matchLabels:
@@ -28,12 +29,7 @@ spec:
           volumeMounts:
             - name: mongo-data
               mountPath: /data/db
-  volumeClaimTemplates:
-    - metadata:
-        name: mongo-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 5Gi
-        storageClassName: standard
+volumes:
+  - name: mongo-data
+    persistentVolumeClaim:
+      claimName: mongo-pvc

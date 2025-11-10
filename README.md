@@ -92,11 +92,13 @@ Install the following tools to run the project on a local machine;
 - Apply kubernetes configurations
 
   ```bash
+    kubectl apply -f mongo-pvc.yaml
     kubectl apply -f manifests/mongodb-statefulset.yml
     kubectl apply -f manifests/Deployment-backend.yml
     kubectl apply -f manifests/Deployment-frontend.yml
     kubectl apply -f manifests/service-backend.yml
     kubectl apply -f manifests/service-frontend.yml
+
   ```
 
 - Access the application in a browser on host - http://192.168.49.2:30080/
