@@ -11,7 +11,7 @@ const productRoute = require("./routes/api/productRoute");
 // let dbName = "yolomy";
 
 // define a url to connect to the database
-const MONGODB_URI = "mongodb://database:27017/yolomy";
+const MONGODB_URI = "mongodb://mongodb:27017/yolomy";
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -41,7 +41,7 @@ app.use(upload.array());
 // Cors
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://frontend:30080", "http://192.168.49.2:30080"],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
