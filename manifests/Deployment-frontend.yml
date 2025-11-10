@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      yolo: frontend
+  template:
+    metadata:
+      labels:
+        yolo: frontend
+    spec:
+      containers:
+        - name: frontend-container
+          image: docker.io/birisi/yolo-ui:v1.0.0
+          securityContext:
+            runAsUser: 0
+          ports:
+            - protocol: TCP
+              containerPort: 80
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 200m
+            limits:
+              memory: 400Mi
+              cpu: 400m
