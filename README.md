@@ -61,3 +61,42 @@ Install the following tools;
   ```
 
 - Open the application in a browser on host - http://localhost:3000/
+
+### Milestone 3 :Orchestrating Containerized Yolo Web App with Kubernetes
+
+This project demonstrates containerized deployment and inter-service communication using NodePort Services.This milestone utilizes minikube to simulate a local kubernetes environment.
+
+#### Key Features
+
+- Kubernetes Deployment -frontend and backend deployed as Deployments
+- NodePort services for external access.
+- StatefulSet for MongoDB to ensure persistent storage
+- Pod replication and automatic restarts handled by K8s
+
+#### Requirements
+
+Install the following tools to run the project on a local machine;
+
+- Minikube
+- Kubectl
+- Docker
+
+#### How to run the application on host browser
+
+- Start minikube
+
+  ```bash
+    minikube start
+  ```
+
+- Apply kubernetes configurations
+
+  ```bash
+    kubectl apply -f manifests/mongodb-statefulset.yml
+    kubectl apply -f manifests/Deployment-backend.yml
+    kubectl apply -f manifests/Deployment-frontend.yml
+    kubectl apply -f manifests/service-backend.yml
+    kubectl apply -f manifests/service-frontend.yml
+  ```
+
+- Access the application in a browser on host - http://192.168.49.2:30080/
