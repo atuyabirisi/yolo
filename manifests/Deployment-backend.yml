@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yolo-backend
+  annotations:
+    ownership: atuya
+    description: Backend deployment for Yolo application
 spec:
   replicas: 2
   selector:

@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb
+  annotations:
+    ownership: atuya
+    description: MongoDB StatefulSet for Yolo application
 spec:
   serviceName: "mongodb"
   replicas: 4
