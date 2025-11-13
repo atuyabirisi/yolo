@@ -30,23 +30,17 @@ This milestone focused on dockerizing the Yolo Web Application ,defining a multi
 
 ### Milestone 2 : Server Infrastructure Provisioning with Vagrant, configuration and Deployment with Ansible
 
-This milestone focused on using Vagrant to provision virtual server infrastructure and ansible to configure the server and deployment of the Yolo e-commerce web application.
+This milestone focuses on the use of Vagrant to provision virtual server infrastructure, Ansible to automate server configuration and deploy the Yolo e-commerce web application.
 
 #### Key Features
 
-- Using vagrant to provision virtual server infrastructure locally
+- Provisioning virtual server environments with Vagrant.
 - Utilizing ansible roles, that define different tasks
 - Utilizing ansible main playbook to orchestrate the multiple roles created
 
-#### Requirements
+#### Run the application in provisioned VM and Access it from the host
 
-Install the following tools;
-
-- Vagrant
-- Ansible
-
-#### How to run the application on host browser
-
+- Install Vagrant and Ansible
 - Fork the repository to your local machine
 - Clone the repository
 - At the project root run the following commands,
@@ -60,7 +54,7 @@ Install the following tools;
     vagrant provision
   ```
 
-- Open the application in a browser on host - http://localhost:3000/
+- Open the application in a browser - http://localhost:3000/
 
 ### Milestone 3 :Orchestrating Containerized Yolo Web App with Kubernetes
 
